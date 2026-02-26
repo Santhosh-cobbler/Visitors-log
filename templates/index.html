@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .upload-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        input[type="file"] {
+            margin-top: 20px;
+        }
+
+        .preview {
+            margin-top: 20px;
+        }
+
+        .preview img {
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="upload-box">
+        <h2>Upload Image</h2>
+        <form method="POST" enctype="multipart/form-data">
+        
+            <label for="clientName">Client Name:</label><br>
+            <input type="text" name="clientName" id="clientName" required>
+            <br><br>
+
+        <input type="file" name="imageInput"  multiple accept="image/*" required>
+
+        <div class="submit-button">
+            <button type="submit">Submit</button>
+        </div>
+
+    </form>
+    </div>
+
+</body>
+</html>
