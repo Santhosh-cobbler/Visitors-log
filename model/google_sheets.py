@@ -1,7 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
-
+import json
 
 def connect_sheet():
     scope = [
@@ -9,11 +9,10 @@ def connect_sheet():
         "https://www.googleapis.com/auth/drive"
     ]
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    cred_path = os.path.join(BASE_DIR, "credentials.json")
+    creds_dict = json.loads(os.environ["GOOGLE_CREDENTIALS"])
 
-    creds = ServiceAccountCredentials.from_json_keyfile_name(
-        cred_path, scope
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(
+        creds_dict, scope
     )
 
     client = gspread.authorize(creds)
