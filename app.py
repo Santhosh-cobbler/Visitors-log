@@ -2,7 +2,12 @@ from flask import Flask, render_template, request
 from model.img_got import IMAGERECEIVED
 import os
 from werkzeug.utils import secure_filename
+import os
+import json
+from google.oauth2 import service_account
 
+cred_json = json.loads(os.environ["GOOGLE_CREDENTIALS"])
+credentials = service_account.Credentials.from_service_account_info(cred_json)
 app = Flask(__name__)
 
 UPLOAD_FOLDER = "static/uploads"
